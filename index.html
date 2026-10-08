@@ -13,11 +13,43 @@
 <link rel="manifest" href="manifest.json">
 
 <style>
-  html, body { margin:0; height:100%; background:#fff; overflow:hidden; }
-  iframe { position:fixed; inset:0; width:100%; height:100%; border:0; }
+  html, body {
+    margin: 0;
+    height: 100%;
+    background: #fff;
+    overflow: hidden;
+  }
+
+  .loading {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #666;
+    background: #fff;
+  }
 </style>
 </head>
 <body>
-<iframe src="https://script.google.com/macros/s/AKfycbyneDtjblJQ2MSMoxptVF69b4AcPRE1gwpgi82Z4Ebko4go6rQzdWJyrAZczYtP3HtK/exec" allow="clipboard-write; camera; microphone"></iframe>
+<div class="loading">Membuka aplikasi...</div>
+
+<script>
+  // URL Google Apps Script tujuan.
+  // Dibuka sebagai halaman utama, bukan iframe, agar tidak terkena
+  // pembatasan X-Frame-Options / Content Security Policy.
+  const APP_URL = "https://script.google.com/macros/s/AKfycbyneDtjblJQ2MSMoxptVF69b4AcPRE1gwpgi82Z4Ebko4go6rQzdWJyrAZczYtP3HtK/exec";
+
+  window.location.replace(APP_URL);
+</script>
+
+<noscript>
+  <p style="font-family:sans-serif;text-align:center;margin-top:40px;">
+    JavaScript diperlukan untuk membuka aplikasi.
+    <br><br>
+    <a href="https://script.google.com/macros/s/AKfycbyneDtjblJQ2MSMoxptVF69b4AcPRE1gwpgi82Z4Ebko4go6rQzdWJyrAZczYtP3HtK/exec">Buka aplikasi</a>
+  </p>
+</noscript>
 </body>
 </html>
